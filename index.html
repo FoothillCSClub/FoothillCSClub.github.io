@@ -1,38 +1,28 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <meta name="description" content="Foothill College Computer Science Club WEbsite">
-  <meta charset="utf-8">
-  <title>CS Club</title>
-  <link rel="stylesheet" type="text/css" href="main.css">
- </head>
- <body>
- 
-  <div class="header">
-   <p><img alt="CS Club Banner" src="CSClubLogo.jpg"/></p> 
-   <p><h1> Foothill College Computer Science Club </p>
-  </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Foothill College Computer Science Club Website">
+    <meta name="keywords" content="Foothill, college, CS, computer science, club">
+    <title>CS Club</title>
+    <link rel="icon" type="image/icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
 
-  <div class="nav">
-   <div id="nav1">
-    <a href="index.html">Home</a>
-    <a href="forum/index.php">Forum</a>
-    <a href='not-implemented.html'>Calendar</a>
-   </div>
-   <div id="nav2">	
-    <a href="not-implemented.html">Blog</a>
-    <a href="not-implemented.html">Tutorials</a>
-    <a href="Mentors.html">Mentors</a>
-   </div>
-  </div>
-	
-  <div class="text">
-   <div id="bodyText">
-    <p> Club meetings are every Thursday at 3:00 PM in Room 4223. </p>
-    <p> Computer Science Mentor Program meets on Tuesdays at 3:00 PM in Room 5607. </p>
-   </div>	
-   <div id="copyright">Copyright 2015 &copy; All Rights Reserved.</div>
-  </div>  
-
- </body>
+<body onresize="resizeCanvas()" onmouseup="mouseClick()">
+    <div id="container">
+        <canvas id="canvas" class="noselect"></canvas>
+        <div id="paddle"></div>
+        <div id="ball"></div>
+        <div id="bottom_bar">
+            <a class="divlink" href="forum/index.php" onmouseover="mouseLinkOver()" onmouseout="mouseLinkOut()">
+                <span><div class="forum_icon"></div><div id="forum_label" class="text">Forum</div></span>
+            </a>
+            <div id="vline"></div>
+            <div id="info" class="text noselect">We meet every Thursday at 3:00 PM in Room 4223.</div>
+        </div>
+    </div>
+    <script src="breakout_levels.js"></script>
+    <script src="breakout.js"></script>
+</body>
 </html>
