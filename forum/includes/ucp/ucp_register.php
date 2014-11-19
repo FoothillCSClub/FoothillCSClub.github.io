@@ -40,7 +40,7 @@ class ucp_register
 		}
 
 		$coppa			= $request->is_set('coppa') ? (int) $request->variable('coppa', false) : false;
-		$agreed			= $request->variable('agreed', false);
+		$agreed			= $request->variable('agreed', true);
 		$submit			= $request->is_set_post('submit');
 		$change_lang	= request_var('change_lang', '');
 		$user_lang		= request_var('lang', $user->lang_name);
