@@ -1,5 +1,10 @@
 @CHARSET "US-ASCII";
 
+body {
+	background-color: black;
+	color: gray;
+}
+
 .centered {
 	text-align: center;
 }
