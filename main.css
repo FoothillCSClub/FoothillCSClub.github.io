@@ -6,3 +6,9 @@ body {
 .centered {
 	text-align: center;
 }
+
+#left_bar {
+	position: absolute;
+	left: 5%;
+	top: 5%;
+}
