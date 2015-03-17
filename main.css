@@ -1,8 +1,53 @@
-body {
-	background-color: black;
-	color: gray;
+.header img
+{
+	width: 90%;
 }
 
-.centered {
+.header
+{
+	color: rgb(100, 230, 0);
+	text-align: center;
+	background-color: black;
+	font-family: 'Shift', sans-serif;
+}
+
+.bodyText
+{
+  margin-top: 20%;
+	text-align: center;
+	font-size: 14pt;
+	font-family: 'Shift', sans-serif;
+	font-weight: lighter;
+}
+
+.nav
+{
+	word-spacing: 15px;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+#nav1, #nav2
+{
+	display: inline;
+	border-bottom: 1px solid #cc0000;
+	border-top: 1px solid #cc0000;
+	padding: 5px;
+}
+
+#nav1
+{
+  float: left;
+}
+
+#nav2
+{
+ float: right;
+}
+
+#copyright
+{
+	margin-top: 80%;
 	text-align: center;
 }
+
