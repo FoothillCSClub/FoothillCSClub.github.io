@@ -3,6 +3,19 @@ body {
 	background-color: black;
 }
 
+a:link {
+	font-family: 'Shift', sans-serif;
+   color: #00bb00
+}
+
+a:visited {
+   color: #008800
+}
+
+a:hover {
+   color: #00ff00
+}
+
 .header img {
 	width: 90%;
 }
@@ -34,8 +47,8 @@ body {
 
 #nav1, #nav2 {
 	display: inline;
-	border-bottom: 1px solid #cc0000;
-	border-top: 1px solid #cc0000;
+	border-bottom: 1px solid #666666;
+	border-top: 1px solid #666666;
 	padding: 5px;
 }
 
