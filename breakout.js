@@ -109,20 +109,25 @@ function resizeCanvas() {
     }
 }
 
-document.addEventListener('keyup', function(e) {
-    // Select level with number keys
-    if (e.keyCode > 48 && e.keyCode < 58) {
-        initLevel(e.keyCode-48);
-    }
-    // Select level with numpad
-    else if (e.keyCode > 96 && e.keyCode < 106) {
-        initLevel(e.keyCode-96);
-    }
-    else if (e.keyCode === 80) {
-        pause = !pause;
-    }
-    else if (e.keyCode === 68) {
-        toggleDebug();
+document.addEventListener('keydown', function(e) {
+    // make sure we only capture keys when the meta key
+    // is being held down, so as to avoid conflict with
+    // the signup form.
+    if (e.altKey) {
+        // Select level with number keys
+        if (e.keyCode > 48 && e.keyCode < 58) {
+            initLevel(e.keyCode-48);
+        }
+        // Select level with numpad
+        else if (e.keyCode > 96 && e.keyCode < 106) {
+            initLevel(e.keyCode-96);
+        }
+        else if (e.keyCode === 80) {
+            pause = !pause;
+        }
+        else if (e.keyCode === 68) {
+            toggleDebug();
+        }
     }
 }, false);
 

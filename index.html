@@ -10,7 +10,7 @@
     <link rel='stylesheet' type='text/css' href='index.css'>
 </head>
 
-<body onresize='resizeCanvas()' onmouseup='mouseClick(event)'>
+<body onresize='resizeCanvas()' >
     <div id='container'>
 	<div id="stats">
             <div id='livesDisp' class='stat' style='left: 0.3em'></div>
@@ -18,7 +18,7 @@
             <div id='comboDisp' class='stat' style='right: 46%'></div>
             <div id='scoreDisp' class='stat' style='right: 0.3em'></div>
 	</div>
-        <canvas id='canvas' class='noselect'></canvas>
+        <canvas id='canvas' class='noselect' onmouseup='mouseClick(event)'></canvas>
         <div id='ball' class='ball'></div>
         <div id='paddle'></div>
         <div id='divDebug' style='visibility: hidden; position: relative; float: left; top: 1.5em'>
