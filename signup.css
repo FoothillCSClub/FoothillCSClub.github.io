@@ -1,0 +1,12 @@
+
+.error {
+	color: #C00;
+	text-shadow: 0 0 2px #C00;
+	font-family: monospace;
+}
+
+.alls-well {
+	color: #0C0;
+	text-shadow: 0 0 2px #0C0;
+	font-family: monospace;
+}
