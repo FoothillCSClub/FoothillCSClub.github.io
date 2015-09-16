@@ -25,7 +25,7 @@
 			"</h1>\n"
 		);
 	} else {
-		if ( ! ($fh = fopen("members.list", "a")) || ! fwrite($fh, $_REQUEST['name'].":".$_REQUEST['email']."\n")) {
+		if ( ! ($fh = fopen("../members.list", "a")) || ! fwrite($fh, $_REQUEST['name'].":".$_REQUEST['email']."\n")) {
 			echo (
 				"<h1 class='error'>\n".
 				"Oh Shit!\n".
