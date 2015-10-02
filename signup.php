@@ -59,7 +59,7 @@
 		}
 	} else {
 		echo("
-<h1> Sign up for the CS Club weekly newletter </h1>
+<h1> Sign up for the CS Club weekly newsletter </h1>
 <div id='signupform'>
     <form method='POST' action='signup.php'>
         <input type='name' name='name' size='20' maxlength='50'
