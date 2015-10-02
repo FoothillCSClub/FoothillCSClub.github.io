@@ -42,18 +42,25 @@
 					"</h3>\n"
 				);
 			} else {
-				echo (
-					"<h1 class='alls-well'>\n".
-					"Thank You...\n".
-					"</h1>\n".
-					"<h3 class='alls-well'>\n".
-					"You've just subscribed yourself to our mailing list.\n".
-					"<br>\n".
-					"Now we can spam you. (NOT!)\n".
-					"<p><p>\n".
-					"Have a nice day, NSA\n".
-					"</h3>\n"
-				);
+				echo ("
+<script type='text/javascript'>
+    setTimeout(redirectPage, 20000)
+
+    function redirectPage() {
+        location.assign(\"signup.php\")
+    }
+</script>
+<h1 class='alls-well'>
+    Thank You...
+</h1>
+<h3 class='alls-well'>
+    You've just subscribed yourself to our mailing list.
+    <br>
+    Now we can spam you. (NOT!)
+    <p><p>
+    Have a nice day, NSA
+</h3>
+				");
 
 			}
 		}
