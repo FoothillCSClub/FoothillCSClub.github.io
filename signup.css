@@ -1,4 +1,9 @@
 
+#signup-container {
+	text-align: center;
+	height: 100%
+}
+
 .error {
 	color: #C00;
 	text-shadow: 0 0 2px #C00;
@@ -9,4 +14,33 @@
 	color: #0C0;
 	text-shadow: 0 0 2px #0C0;
 	font-family: monospace;
+}
+
+#signupform {
+	position: relative;
+	width: 100%;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	color: #CCC;
+	text-align: center;
+}
+
+#signupform input {
+	color: #0F0;
+	background-color: #111111;
+	text-shadow: 0 0 2px #0C0;
+	border-style: solid;
+	border-color: #111111;
+	border-width: 0.5em;
+	margin: 1em;
+	font-family: monospace;
+}
+
+#signup-bottom-nav {
+	position: absolute;
+	width: 100%;
+	bottom: 10%;
+	font-size: 1.5em;
+	color: white;
+	text-decoration: none;
 }

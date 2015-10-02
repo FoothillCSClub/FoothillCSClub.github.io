@@ -10,54 +10,78 @@
     <link rel='stylesheet' type='text/css' href='signup.css'>
 </head>
 <body>
-    <div style="text-align: center;">
+    <div id='signup-container'>
 
 <?php
-	$email = filter_var($_REQUEST['email'], FILTER_VALIDATE_EMAIL);
-	$name = $_REQUEST['name'];
+	$issubmit = 0;
+	if ( strlen($_REQUEST['email']) > 0 && strlen($_REQUEST['name']) > 0) {
+		$issubmit = 1;
 
-	if (! $email || strlen($email) > 50 || strlen($name) > 50) {
-		echo (
-			"<h1 class='error'>\n".
-			"Invalid name or email address.\n".
-			"<br>\n".
-			"Try again please.\n".
-			"</h1>\n"
-		);
-	} else {
-		if ( ! ($fh = fopen("../members.list", "a")) || ! fwrite($fh, $_REQUEST['name'].":".$_REQUEST['email']."\n")) {
+		$email = filter_var($_REQUEST['email'], FILTER_VALIDATE_EMAIL);
+		$name = $_REQUEST['name'];
+
+		if (! $email || strlen($email) > 50 || strlen($name) > 50) {
 			echo (
 				"<h1 class='error'>\n".
-				"Oh Shit!\n".
-				"</h1>\n".
+				"Invalid name or email address.\n".
 				"<br>\n".
-				"<h3 class='error'>\n".
-				"Something bad has happend!\n".
-				"<br>\n".
-				"Please find Grond (Samuel), and beat him over the head with a frying pan for his supidity.\n".
-				"</h3>\n"
+				"Try again please.\n".
+				"</h1>\n"
 			);
 		} else {
-			echo (
-				"<h1 class='alls-well'>\n".
-				"Thank You...\n".
-				"</h1>\n".
-				"<h3 class='alls-well'>\n".
-				"You've just subscribed yourself to our mailing list.\n".
-				"<br>\n".
-				"Now we can spam you. (NOT!)\n".
-				"<p><p>\n".
-				"Have a nice day, NSA\n".
-				"</h3>\n"
-			);
+			if ( ! ($fh = fopen("../members.list", "a")) || ! fwrite($fh, $_REQUEST['name'].":".$_REQUEST['email']."\n")) {
+				echo (
+					"<h1 class='error'>\n".
+					"Oh Shit!\n".
+					"</h1>\n".
+					"<br>\n".
+					"<h3 class='error'>\n".
+					"Something bad has happend!\n".
+					"<br>\n".
+					"Please find Grond (Samuel), and beat him over the head with a frying pan for his supidity.\n".
+					"</h3>\n"
+				);
+			} else {
+				echo (
+					"<h1 class='alls-well'>\n".
+					"Thank You...\n".
+					"</h1>\n".
+					"<h3 class='alls-well'>\n".
+					"You've just subscribed yourself to our mailing list.\n".
+					"<br>\n".
+					"Now we can spam you. (NOT!)\n".
+					"<p><p>\n".
+					"Have a nice day, NSA\n".
+					"</h3>\n"
+				);
 
+			}
 		}
+	} else {
+		echo("
+<h1> Sign up for the CS Club weekly newletter </h1>
+<div id='signupform'>
+    <form method='POST' action='signup.php'>
+        <input type='name' name='name' size='20' maxlength='50'
+            onfocus=\"if( this.value==this.defaultValue ) this.value='';\"
+            onblur=\"if ( this.value=='' ) this.value=this.defaultValue;\"
+            value='Your Name'>
+        <br>
+        <input type='text' name='email' size='20' maxlength='50'
+            onfocus=\"if( this.value==this.defaultValue ) this.value='';\"
+            onblur=\"if ( this.value=='' ) this.value=this.defaultValue;\"
+            value='Email Address'>
+        <br>
+        <input type='submit' value='Sign Up!'>
+    </form>
+</div>
+		");
 	}
+	echo ("
+<div id='signup-bottom-nav'>
+    [ <a href='.'>Home</a>". (($issubmit) ? " | <a href='signup.php'>Signup Sheet</a>" : "") ." ]
+</div>
+	");
 ?>
-
-	Back to start...
-	<a href="index.html" style="font-size: 5em; margin: 0px; font-family: monospace; font-style: normal;">
-	    <blockquote style="margin: 0px;"><-</blockquote>
-	</a>
     </div>
 </body>

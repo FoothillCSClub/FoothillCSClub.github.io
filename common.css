@@ -13,5 +13,22 @@ html, body {
     height: 100%;
     margin: 0;
     background: black;
+    font-family: monospace;
     color: #CCC;
+}
+
+a {
+	text-shadow: 0 0 2px #494;
+}
+
+a:link {
+	color: #494;
+}
+
+a:visited {
+	color: #494;
+}
+
+a:hover {
+	color: #0F0;
 }
