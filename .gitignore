@@ -3,3 +3,6 @@ forum/cache/*
 forum/files/*
 forum/store/*
 forum/images/avatars/upload/*
+
+# don't think about what we've put our revision control dir
+scm/*
