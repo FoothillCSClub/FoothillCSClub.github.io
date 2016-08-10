@@ -1,0 +1,164 @@
+
+#container {
+    position: relative;
+    width: 50em;
+    height: 100%;
+    margin: 0 auto;
+}
+
+canvas {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    background: black;
+}
+
+.stat {
+    position: absolute;
+    font-family: MonoMMM, monospace;
+    font-size: 0.8em;
+    text-align: right;
+    text-shadow: 0 0 2px #0C0;
+    color: #0C0;
+}
+
+#stats {
+    position: relative;
+    height: 1em;
+}
+
+.ball {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #CCC;
+    -webkit-box-shadow: 0 0 2px #888;
+       -moz-box-shadow: 0 0 2px #888;
+            box-shadow: 0 0 2px #888;
+}
+
+#paddle {
+    position: absolute;
+    background-color: #CCC;
+    -webkit-box-shadow: 0 0 2px #888;
+       -moz-box-shadow: 0 0 2px #888;
+            box-shadow: 0 0 2px #888;
+}
+
+.debug {
+    display: table-cell;
+    font-family: monospace;
+    font-size: 0.4em;
+    font-weight: bold;
+    white-space: pre;
+    color: #222;
+}
+
+.value {
+    text-align: right;
+    color: #888;
+}
+
+#bottom_bar {
+    position: relative;
+    width: 100%;
+    height: 5.4em;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.text {
+    position: absolute;
+    font-family: monospace, Helvetica;
+    color: #CCC;
+}
+
+.noselect {p
+    -webkit-user-select: none;      
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+.divlink {
+    position: absolute;
+    display: block;
+    top: 20%;
+    left: 1%;
+    width: 20%;
+    height: 60%;
+    text-decoration: none;
+}
+
+.forum_icon {
+    position: absolute;
+    font-size: 1.5em;
+    left: 0.6em;
+    top: 15%;
+    border-radius: 0.2em;
+    width: 2em;
+    height: 1.5em;
+    background: #CCC;
+}
+
+.forum_icon::before {
+    position:absolute;
+    right: 0.4em;
+    bottom: -0.3em;
+    border-bottom: 0.4em solid transparent;
+    border-left: 0.4em solid #CCC;
+    content: "";
+}
+
+.forum_icon::after {
+    position: absolute;
+    top: 0.35em;
+    left: 0.6em;
+    display: block;
+    font-size: 0.8em;
+    font-weight: bold;
+    content: '/*';
+    color: black;
+    font-family: MonoMMM, monospace;
+}
+
+.forum_icon_hover {
+    background: #0C0;
+}
+
+.forum_icon_hover::before {
+    border-left: 0.4em solid #0C0;
+}
+
+#forum_label {
+    top: 25%;
+    left: 3em;
+    font-size: 1.5em;
+}
+
+#vline {
+    position: absolute;
+    left: 23%;
+    top: 0;
+    width: 0.1em;
+    height: 100%;
+    background: #444;
+}
+
+#info {
+    top: 20%;
+    left: 28%;
+    font-size: 1.5em;
+}
+
+#hline {
+    height: 0.1em;
+    background: #444;
+    width: 100%;
+}
+
+#bottom-links {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+}

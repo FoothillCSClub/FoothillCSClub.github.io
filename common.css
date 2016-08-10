@@ -1,0 +1,34 @@
+
+@font-face {
+    font-family: 'MonoMMM';
+    src: url('fonts/monommm_5-webfont.eot');
+    src: url('fonts/monommm_5-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/monommm_5-webfont.woff2') format('woff2'),
+         url('fonts/monommm_5-webfont.woff') format('woff'),
+         url('fonts/monommm_5-webfont.ttf') format('truetype');
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: black;
+    font-family: monospace;
+    color: #CCC;
+}
+
+a {
+    text-shadow: 0 0 2px #494;
+}
+
+a:link {
+    color: #494;
+}
+
+a:visited {
+    color: #494;
+}
+
+a:hover {
+    color: #0F0;
+}
