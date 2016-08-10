@@ -1,4 +1,3 @@
-
 #container {
     position: relative;
     width: 50em;
@@ -13,6 +12,11 @@ canvas {
     background: black;
 }
 
+#stats {
+    position: relative;
+    height: 1em;
+}
+
 .stat {
     position: absolute;
     font-family: MonoMMM, monospace;
@@ -22,9 +26,16 @@ canvas {
     color: #0C0;
 }
 
-#stats {
-	position: relative;
-	height: 1em;
+.life {
+    position: absolute;
+    border-radius: 50%;
+    top: 0.2em;
+    width: 0.8em;
+    height: 0.8em;
+    background-color: #0C0;
+    -webkit-box-shadow: 0 0 2px #0C0;
+       -moz-box-shadow: 0 0 2px #0C0;
+            box-shadow: 0 0 2px #0C0;
 }
 
 .ball {
@@ -68,8 +79,8 @@ canvas {
 
 .text {
     position: absolute;
-	font-family: monospace, Helvetica;
-	color: #CCC;
+    font-family: monospace, Helvetica;
+    color: #CCC;
 }
 
 .noselect {p
@@ -102,12 +113,12 @@ canvas {
 }
 
 .forum_icon::before {
-	position:absolute;
-	right: 0.4em;
-	bottom: -0.3em;
-	border-bottom: 0.4em solid transparent;
-	border-left: 0.4em solid #CCC;
-	content: "";
+    position:absolute;
+    right: 0.4em;
+    bottom: -0.3em;
+    border-bottom: 0.4em solid transparent;
+    border-left: 0.4em solid #CCC;
+    content: "";
 }
 
 .forum_icon::after {
@@ -127,7 +138,7 @@ canvas {
 }
 
 .forum_icon_hover::before {
-	border-left: 0.4em solid #0C0;
+    border-left: 0.4em solid #0C0;
 }
 
 #forum_label {
@@ -146,19 +157,19 @@ canvas {
 }
 
 #info {
-    top: 20%;
+    top: 35%;
     left: 28%;
     font-size: 1.5em;
 }
 
 #hline {
-	height: 0.1em;
-	background: #444;
-	width: 100%;
+    height: 0.1em;
+    background: #444;
+    width: 100%;
 }
 
 #bottom-links {
-	margin-top: 1em;
-	margin-bottom: 1em;
-	text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
 }

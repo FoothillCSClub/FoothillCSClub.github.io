@@ -5,7 +5,7 @@ var ctx = canvas.getContext('2d'),
     level = 0,
     levelCurr = [],
     bricks,
-    lives = 3,
+    lives = 0,
     score = 0,
     multi,
     combo,
@@ -20,6 +20,8 @@ var ctx = canvas.getContext('2d'),
     dy,
     r = 0.4,    // radius of ball
     v,          // velocity of ball
+    g,          // gravity
+    k = 0.9,    // kinetic coefficient of restitution
     gxOld = 0,  // floored grid coordinates of ball
     gyOld = 0,
     gw,         // horizontal grid count
@@ -27,21 +29,25 @@ var ctx = canvas.getContext('2d'),
     gU,         // size of a grid
     color = {
         background: '#111',
-        brick: '#090'
+        brick: '#090',
+        debug: 'red'
     },
     pause = false,
+    gravity = false,
+    kinetics = false,
     debug = false;
 
-initLevel();
+initLevel(1);
 
 function initLevel(n) {
     if (n) {
         if (n-1 < levels.length) {
             level = n-1;
-            lives = 3;
             score = 0;
+            while (lives < 4)
+                addLife(lives);
         }
-        else { return; }
+        else return;
     }
     // Convert 2D char array to boolean array
     bricks = 0;
@@ -52,9 +58,8 @@ function initLevel(n) {
         var jlen = levels[level][i].length;
         gw = gw < jlen ? jlen : gw;
         levelCurr[i] = [];
-        for (var j = 0; j < jlen; j++) {
+        for (var j = 0; j < jlen; j++)
             levelCurr[i][j] = levels[level][i][j] !== ' ' ? (bricks++, true) : false;
-        }
     }
     ballOnPaddle = true;
     // Center ball and paddle on load for touchscreens
@@ -64,9 +69,9 @@ function initLevel(n) {
     dx = 0;
     dy = 0;
     v = 0.003*gw+0.1;
+    g = v*0.004
     combo = 0;
     multi = 0;
-    livesDisp.innerHTML = lives;
     multiDisp.innerHTML = '×'+multi;
     comboDisp.innerHTML = '×'+combo;
     scoreDisp.innerHTML = score;
@@ -95,47 +100,40 @@ function resizeCanvas() {
     // Draw bricks
     for (var i = 0; i < gh; i++) {
         for (var j = 0; j < gw; j++) {
-            if (levelCurr[i][j]) {
+            if (levelCurr[i][j])
                 ctx.fillRect(j*gU+1, i*gU+1, gU-2, gU-2);
-            }
         }
     }
     ctx.fillStyle = color.background;
-    ctx.strokeStyle = debug ? 'red' : color.background;
+    ctx.strokeStyle = debug ? color.debug : color.background;
     ctx.shadowColor = color.background;
     paddle.style.left = paddleX*gU+'px';
-    if (ballOnPaddle) {
+    if (ballOnPaddle)
         y = gw/2-1-paddleHeight*1.6-r;
-    }
 }
 
 document.addEventListener('keydown', function(e) {
-    // make sure we only capture keys when the meta key
-    // is being held down, so as to avoid conflict with
-    // the signup form.
-    if (e.altKey) {
-        // Select level with number keys
-        if (e.keyCode > 48 && e.keyCode < 58) {
-            initLevel(e.keyCode-48);
-        }
-        // Select level with numpad
-        else if (e.keyCode > 96 && e.keyCode < 106) {
-            initLevel(e.keyCode-96);
-        }
-        else if (e.keyCode === 80) {
-            pause = !pause;
-        }
-        else if (e.keyCode === 68) {
-            toggleDebug();
-        }
-    }
+    // Select level with number keys
+    if (e.keyCode > 48 && e.keyCode < 58)
+        initLevel(e.keyCode-48);
+    // Select level with numpad
+    else if (e.keyCode > 96 && e.keyCode < 106)
+        initLevel(e.keyCode-96);
+    else if (e.keyCode === 71)
+        gravity = !gravity;
+    else if (e.keyCode === 75)
+        kinetics = !kinetics;
+    else if (e.keyCode === 80)
+        pause = !pause;
+    else if (e.keyCode === 68)
+        toggleDebug();
 }, false);
 
 function toggleDebug() {
     debug = !debug;
     if (debug) {
         divDebug.style.visibility = 'visible';
-        ctx.strokeStyle = 'red';
+        ctx.strokeStyle = color.debug;
     }
     else {
         divDebug.style.visibility = 'hidden';
@@ -190,6 +188,15 @@ function mouseLinkOut() {
     forum_label.style.color = '#CCC';
 }
 
+function addLife(n) {
+    if (lives++ > 0) {
+        var life = document.createElement('div');
+        life.className = 'life';
+        life.style.left = n-1+'em';
+        livesDisp.appendChild(life);
+    }
+}
+
 // Check brick collision
 // TODO: Fix occasional wrong bounce direction
 // TODO: Recurse collision detection until ball has traveled full delta distance
@@ -216,10 +223,9 @@ function checkCollision(gridX, gridY) {
             bounce = 'y';
         }
     }
-    if (debug) {
+    if (debug)
         // Visualize grids checked by collision detection
         ctx.strokeRect(gridX*gU+3, gridY*gU+3, gU-6, gU-6);
-    }
     // Disqualify result if no contact occured
     return [vectFrac > 0 ? vectFrac : 1, centerness < 0.5+r ? centerness : 1, bounce];
 }
@@ -244,6 +250,9 @@ setInterval(function() {
     if (pause) { return; }
     var gx = Math.floor(x-0.5),
         gy = Math.floor(y-0.5);
+    // Constant gravitational force
+    if (gravity && !ballOnPaddle)
+        dy += g;
     // Continue if ball only intersects previous grids
     if (gy > 0 && gy < gh-1 && (gx !== gxOld || gy !== gyOld)) {
         var deleteX,
@@ -251,8 +260,8 @@ setInterval(function() {
             minVectFrac = 1,
             minCenterness = 1,
             bounce;
-        for (var i = gx-Math.floor(v); i <= gx+Math.ceil(v); i++) {
-            for (var j = gy-Math.floor(v); j <= gy+Math.ceil(v); j++) {
+        for (var i = gx+Math.floor(dx); i <= gx+Math.ceil(dx); i++) {
+            for (var j = gy+Math.floor(dy); j <= gy+Math.ceil(dy); j++) {
                 if (levelCurr[j][i]) {
                     var result = checkCollision(i, j);
                     // Nominate brick with shortest collision vector for deletion
@@ -271,19 +280,17 @@ setInterval(function() {
         if (minVectFrac < 1) {
             x += dx*minVectFrac;
             y += dy*minVectFrac;
-            if (bounce === 'y') { dy *= -1; }
-            else { dx *= -1; }
+            if (bounce === 'y') { dy *= kinetics ? -k : -1; }
+            else { dx *= kinetics ? -k : -1; }
             deleteBrick(deleteX, deleteY);
         }
     }
     // Check sidewall collision
-    if (x+dx < r || x+dx > gw-r) {
+    if (x+dx < r || x+dx > gw-r)
         dx *= -1;
-    }
     // Check ceiling collision
-    else if (y+dy < r) {
+    else if (y+dy < r)
         dy *= -1;
-    }
     else if (y+dy > gw/2-1-paddleHeight-r) {
         combo = 0;
         comboDisp.innerHTML = '×'+combo;
@@ -302,7 +309,8 @@ setInterval(function() {
             dx = 0;
             dy = 0;
             lives -= lives > 0 ? 1 : 0;
-            livesDisp.innerHTML = lives;
+            if (lives > 0)
+                livesDisp.removeChild(livesDisp.lastChild);
             multi = 0;
             multiDisp.innerHTML = '×'+multi;
             if (!lives && level !== levels.length-1) {

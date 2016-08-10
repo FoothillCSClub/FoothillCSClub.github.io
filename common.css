@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: 'MonoMMM';
     src: url('fonts/monommm_5-webfont.eot');
@@ -18,17 +17,17 @@ html, body {
 }
 
 a {
-	text-shadow: 0 0 2px #494;
+    text-shadow: 0 0 2px #494;
 }
 
 a:link {
-	color: #494;
+    color: #494;
 }
 
 a:visited {
-	color: #494;
+    color: #494;
 }
 
 a:hover {
-	color: #0F0;
+    color: #0F0;
 }
