@@ -44,8 +44,8 @@ function initLevel(n) {
         if (n-1 < levels.length) {
             level = n-1;
             score = 0;
-            for (var i = lives; i < 4; i++)
-                addLife(i);
+            while (lives < 4)
+                addLife(lives);
         }
         else return;
     }
