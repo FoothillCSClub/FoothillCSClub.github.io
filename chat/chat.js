@@ -8,10 +8,10 @@ $(function() {
          onAuthFail: "ask",
       },
       //logoutElement: $('#chatLogout'),
-      root: '/~samuel/csclub/chat/jsxc',
+      root: '/chat/jsxc',
       xmpp: {
-	 url: 'http://localhost:5280/http-bind/',
-	 domain: 'aether.pye',
+	 url: 'http-bind',
+	 domain: 'cs.foothillstemclubs.org',
 	 resource: 'jsxc'
       }
    });
