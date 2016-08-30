@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> CS Club Chat Rooms </title>
+  <meta charset='UTF-8'>
+  <meta name='description' content='Foothill College Computer Science Club - information and discussions.'>
+  <meta name='keywords' content='Foothill, college, CS, computer science, club'>
+  <script src="jsxc/lib/jquery.min.js"></script>
+  <script src="jsxc/lib/jquery.ui.min.js"></script>
+  <script src="jsxc/lib/jquery.slimscroll.js"></script>
+  <script src="jsxc/lib/jquery.fullscreen.js"></script>
+  <script src="jsxc/lib/jsxc.dep.js"></script>
+  <script src="jsxc/jsxc.js"></script>
+  <script src="chat.js"></script>
+  <link href="../common.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="chat.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="jsxc/css/jquery-ui.min.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="jsxc/css/jsxc.css" media="all" rel="stylesheet" type="text/css" />
+ </head>
+ <body onload="initLoginForm();">
+  <center>
+   <div id="chatLoginStuff">
+    <div id="chatHeader"> CS Club Chat System </div>
+    <form id="chatLoginForm">
+     <input
+      type="text"
+      id="chatUsername"
+      size=20
+      placeholder="Username"
+     >
+     <br>
+     <input
+      type="password"
+      id="chatPassword"
+      size=20
+      placeholder="Password"
+     >
+     <br>
+     <input type="submit" id="chatloginbutton" value="Log In">
+    </form>
+   </div>
+   <!-- <div id="chatLogoutStuff">
+    <input type="button" id="chatLogout" value="Log Out">
+    <div id="chatLogout" style="color: #0C0;"> Log Out </div>
+   </div>-->
+  </center>
+ </body>
+</html>

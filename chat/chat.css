@@ -1,0 +1,25 @@
+
+/*
+ * override a few text some text attributes in common.css that
+ * make chat text harder to read
+ */
+body, html {
+	color: black;
+}
+a {
+	/* disable */
+	text-shadow: 0 0 0px black;
+}	
+
+#chatHeader {
+	color: #0C0;
+	font-size: 3em;
+	margin-top: 3%;
+}
+
+#chatLoginForm {
+	/* this is overriden by JS at runtime */
+	display: none;
+
+	margin-top: 4%;
+}

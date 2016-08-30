@@ -31,3 +31,14 @@ a:visited {
 a:hover {
     color: #0F0;
 }
+
+form input {
+    color: #000;
+    background-color: #0F0;
+    text-shadow: 0 0 2px #0C0;
+    border-style: solid;
+    border-color: #0F0;
+    border-width: 0.5em;
+    margin: 1em;
+    font-family: monospace;
+}
