@@ -3,13 +3,9 @@
  * override a few text some text attributes in common.css that
  * make chat text harder to read
  */
-body, html {
-	color: black;
-}
-a {
-	/* disable */
-	text-shadow: 0 0 0px black;
-}	
+body, html { color: black; }
+a { text-shadow: unset; }
+form input { text-shadow: unset; }
 
 #chatHeader {
 	color: #0C0;
