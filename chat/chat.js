@@ -40,6 +40,7 @@ function initLoginForm() {
 
 $(document).on("attached.jsxc", function() {
 	hideLoginForm();
+	$("#chatPassword").val("");
 });
 
 $(document).on("disconnected.jsxc", function() {
