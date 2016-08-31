@@ -101,7 +101,7 @@ canvas {
     text-decoration: none;
 }
 
-.forum_icon {
+.chat_icon {
     position: absolute;
     font-size: 1.5em;
     left: 0.6em;
@@ -112,7 +112,7 @@ canvas {
     background: #CCC;
 }
 
-.forum_icon::before {
+.chat_icon::before {
     position:absolute;
     right: 0.4em;
     bottom: -0.3em;
@@ -121,7 +121,7 @@ canvas {
     content: "";
 }
 
-.forum_icon::after {
+.chat_icon::after {
     position: absolute;
     top: 0.35em;
     left: 0.6em;
@@ -133,15 +133,15 @@ canvas {
     font-family: MonoMMM, monospace;
 }
 
-.forum_icon_hover {
+.chat_icon_hover {
     background: #0C0;
 }
 
-.forum_icon_hover::before {
+.chat_icon_hover::before {
     border-left: 0.4em solid #0C0;
 }
 
-#forum_label {
+#chat_label {
     top: 25%;
     left: 3em;
     font-size: 1.5em;

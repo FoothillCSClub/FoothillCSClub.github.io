@@ -179,13 +179,13 @@ function mouseClick(e) {
 }
 
 function mouseLinkOver() {
-    document.querySelector('.forum_icon').classList.add('forum_icon_hover');
-    forum_label.style.color = '#0C0';
+    document.querySelector('.chat_icon').classList.add('chat_icon_hover');
+    chat_label.style.color = '#0C0';
 }
 
 function mouseLinkOut() {
-    document.querySelector('.forum_icon').classList.remove('forum_icon_hover');
-    forum_label.style.color = '#CCC';
+    document.querySelector('.chat_icon').classList.remove('chat_icon_hover');
+    chat_label.style.color = '#CCC';
 }
 
 function addLife(n) {
