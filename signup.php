@@ -29,7 +29,10 @@
 				"</h1>\n"
 			);
 		} else {
-			if ( ! ($fh = fopen("../members.list", "a")) || ! fwrite($fh, $_REQUEST['name'].":".$_REQUEST['email']."\n")) {
+			if ( !system(
+				"/usr/bin/mlmmj-sub -L /var/spool/announce@cs.foothillstemclubs.org -C -a " .
+				escapeshellarg($_REQUEST['email'])
+			)) {
 				echo (
 					"<h1 class='error'>\n".
 					"Oh Shit!\n".
