@@ -14,7 +14,12 @@
 
 <?php
 	$issubmit = 0;
-	if ( strlen($_REQUEST['email']) > 0 && strlen($_REQUEST['name']) > 0) {
+	if (
+		array_key_exists('email', $_REQUEST) &&
+		strlen($_REQUEST['email']) > 0 &&
+		array_key_exists('name', $_REQUEST) &&
+		strlen($_REQUEST['name']) > 0
+	) {
 		$issubmit = 1;
 
 		$email = filter_var($_REQUEST['email'], FILTER_VALIDATE_EMAIL);
