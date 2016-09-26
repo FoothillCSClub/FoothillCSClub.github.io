@@ -34,15 +34,13 @@
 				"</h1>\n"
 			);
 		} else {
-			system(
-				"/usr/sbin/sendmail csclub-announcements-subscribe@cs.foothillstemclubs.org <<_EOF\n".
-				"Subject: subscribe\n".
-				"To: csclub-announcemens-subscribe@cs.foothillstemclubs.org\n".
-				"From: ".escapeshellcmd($name)." <".escapeshellcmd($email).">\n".
-				"_EOF\n",
-				$status
-			);
-			if ($status != 0) {
+			if (
+				!($fh = fopen("/var/spool/subscription-queue/csclub-announcements", "a")) ||
+				!flock($fh, LOCK_EX) ||
+				!fwrite($fh, "$name <$email>\n") ||
+				!flock($fh, LOCK_UN) ||
+				!fclose($fh)
+			) {
 				echo (
 					"<h1 class='error'>\n".
 					"Oh Shit!\n".
