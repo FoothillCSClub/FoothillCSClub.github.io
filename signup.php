@@ -34,7 +34,13 @@
 				"</h1>\n"
 			);
 		} else {
-			if ( ! ($fh = fopen("../members.list", "a")) || ! fwrite($fh, $_REQUEST['name'].":".$_REQUEST['email']."\n")) {
+			if ( ! system(
+				"/usr/sbin/sendmail csclub-announcements-subscribe@cs.foothillstemclubs.org <<_EOF\n".
+				"Subject: subscribe\n".
+				"To: csclub-announcemens-subscribe@cs.foothillstemclubs.org\n".
+				"From: ".escapeshellcmd($name)." <".escapeshellcmd($email).">\n".
+				"_EOF\n"
+			)) {
 				echo (
 					"<h1 class='error'>\n".
 					"Oh Shit!\n".
