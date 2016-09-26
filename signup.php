@@ -34,13 +34,15 @@
 				"</h1>\n"
 			);
 		} else {
-			if ( ! system(
+			system(
 				"/usr/sbin/sendmail csclub-announcements-subscribe@cs.foothillstemclubs.org <<_EOF\n".
 				"Subject: subscribe\n".
 				"To: csclub-announcemens-subscribe@cs.foothillstemclubs.org\n".
 				"From: ".escapeshellcmd($name)." <".escapeshellcmd($email).">\n".
-				"_EOF\n"
-			)) {
+				"_EOF\n",
+				$status
+			);
+			if ($status != 0) {
 				echo (
 					"<h1 class='error'>\n".
 					"Oh Shit!\n".
