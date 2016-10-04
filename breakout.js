@@ -37,7 +37,7 @@ var ctx = canvas.getContext('2d'),
     kinetics = false,
     debug = false;
 
-initLevel(1);
+window.onreadystatechange = initLevel(1);
 
 function initLevel(n) {
     if (n) {
