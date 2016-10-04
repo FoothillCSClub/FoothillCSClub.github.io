@@ -14,7 +14,12 @@
 
 <?php
 	$issubmit = 0;
-	if ( strlen($_REQUEST['email']) > 0 && strlen($_REQUEST['name']) > 0) {
+	if (
+		array_key_exists('email', $_REQUEST) &&
+		strlen($_REQUEST['email']) > 0 &&
+		array_key_exists('name', $_REQUEST) &&
+		strlen($_REQUEST['name']) > 0
+	) {
 		$issubmit = 1;
 
 		$email = filter_var($_REQUEST['email'], FILTER_VALIDATE_EMAIL);
@@ -29,7 +34,13 @@
 				"</h1>\n"
 			);
 		} else {
-			if ( ! ($fh = fopen("../members.list", "a")) || ! fwrite($fh, $_REQUEST['name'].":".$_REQUEST['email']."\n")) {
+			if (
+				!($fh = fopen("/var/spool/subscription-queue/csclub-announcements", "a")) ||
+				!flock($fh, LOCK_EX) ||
+				!fwrite($fh, "$name <$email>\n") ||
+				!flock($fh, LOCK_UN) ||
+				!fclose($fh)
+			) {
 				echo (
 					"<h1 class='error'>\n".
 					"Oh Shit!\n".
@@ -38,7 +49,7 @@
 					"<h3 class='error'>\n".
 					"Something bad has happend!\n".
 					"<br>\n".
-					"Please find Grond (Samuel), and beat him over the head with a frying pan for his supidity.\n".
+					"Please find Grond (Samuel), and beat him over the head with a frying pan for his stupidity.\n".
 					"</h3>\n"
 				);
 			} else {
