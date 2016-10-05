@@ -49,7 +49,7 @@
 					"<h3 class='error'>\n".
 					"Something bad has happend!\n".
 					"<br>\n".
-					"Please find Grond (Samuel), and beat him over the head with a frying pan for his supidity.\n".
+					"Please find Grond (Samuel), and beat him over the head with a frying pan for his stupidity.\n".
 					"</h3>\n"
 				);
 			} else {
