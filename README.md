@@ -1,3 +1,6 @@
-[GitHub Pages](https://pages.github.com/) version: **http://FoothillCSClub.github.io/**
+#Foothill College Computer Science Club
+######Official website
+---
+[GitHub Pages](https://pages.github.com/) preview: **http://FoothillCSClub.github.io/**
 
-Official version: **https://cs.foothillstemclubs.org/**
+Official host: **https://cs.foothillstemclubs.org/**
