@@ -11,7 +11,7 @@ $(function() {
       root: '/chat/jsxc',
       xmpp: {
 	 url: 'http-bind',
-	 domain: 'cs.foothillstemclubs.org',
+	 domain: 'foothillstemclubs.org',
 	 resource: 'jsxc'
       }
    });
