@@ -96,7 +96,7 @@ canvas {
     display: block;
     top: 20%;
     left: 1%;
-    width: 20%;
+    width: 19%;
     height: 60%;
     text-decoration: none;
 }
@@ -149,7 +149,7 @@ canvas {
 
 #vline {
     position: absolute;
-    left: 23%;
+    left: 20%;
     top: 0;
     width: 0.1em;
     height: 100%;
@@ -158,7 +158,7 @@ canvas {
 
 #info {
     top: 35%;
-    left: 28%;
+    left: 23%;
     font-size: 1.5em;
 }
 
