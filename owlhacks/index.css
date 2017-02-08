@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'MonoMMM';
+    src: url('fonts/monommm_5-webfont.eot');
+    src: url('fonts/monommm_5-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/monommm_5-webfont.woff2') format('woff2'),
+         url('fonts/monommm_5-webfont.woff') format('woff'),
+         url('fonts/monommm_5-webfont.ttf') format('truetype');
+}
+
+html, body {
+    position: absolute;
+    background: rgb(197, 0, 11);
+    margin: 0%;
+    width: 100%;
+    height: 100%;
+    font-family: monospace;
+}
+
+#header {
+    position: relative;
+    background: rgb(200, 200, 200);
+    text-align: center;
+    padding: 0.5em;
+    font-size: 3em;
+    color: rgb(197, 0, 11);
+}
+
+#content {
+    position: relative;
+    background: rgb(250, 53, 64);
+    width: 70%;
+    margin-left: 13%;
+    padding: 2%;
+    font-size: 1.5em;
+}
+
+.question {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.answer {
+    position: relative;
+    margin-left: 2em;
+}
+
+#owlhacks-rsvp-form {
+    text-align: center;
+}
+
+#owlhacks-rsvp-form input, #owlhacks-rsvp-form textarea {
+    background: black;
+    color: red;
+    padding: 0.5em;
+    border-width: 0em;
+    text-shadow: 0 0 2px red;
+}
+
+.error {
+    color: blue;
+    font-weight: bold;
+}
