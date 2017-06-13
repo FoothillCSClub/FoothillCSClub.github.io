@@ -33,26 +33,20 @@ canvas {
     width: 0.8em;
     height: 0.8em;
     background-color: #0C0;
-    -webkit-box-shadow: 0 0 2px #0C0;
-       -moz-box-shadow: 0 0 2px #0C0;
-            box-shadow: 0 0 2px #0C0;
+    box-shadow: 0 0 2px #0C0;
 }
 
 .ball {
     position: absolute;
     border-radius: 50%;
     background-color: #CCC;
-    -webkit-box-shadow: 0 0 2px #888;
-       -moz-box-shadow: 0 0 2px #888;
-            box-shadow: 0 0 2px #888;
+    box-shadow: 0 0 2px #888;
 }
 
 #paddle {
     position: absolute;
     background-color: #CCC;
-    -webkit-box-shadow: 0 0 2px #888;
-       -moz-box-shadow: 0 0 2px #888;
-            box-shadow: 0 0 2px #888;
+    box-shadow: 0 0 2px #888;
 }
 
 .debug {
@@ -84,11 +78,7 @@ canvas {
 }
 
 .noselect {
-    -webkit-user-select: none;      
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-    cursor: default;
+    pointer-events: none;
 }
 
 .divlink {
@@ -103,13 +93,13 @@ canvas {
 
 .chat_icon {
     position: absolute;
-    font-size: 1.5em;
     left: 0.6em;
     top: 15%;
-    border-radius: 0.2em;
     width: 2em;
     height: 1.5em;
+    border-radius: 0.2em;
     background: #CCC;
+    font-size: 1.5em;
 }
 
 .chat_icon::before {
@@ -118,7 +108,7 @@ canvas {
     bottom: -0.3em;
     border-bottom: 0.4em solid transparent;
     border-left: 0.4em solid #CCC;
-    content: "";
+    content: '';
 }
 
 .chat_icon::after {
@@ -147,12 +137,16 @@ canvas {
     font-size: 1.5em;
 }
 
+.vline {
+    color: #444;
+}
+
 #vline {
     position: absolute;
-    left: 20%;
     top: 0;
-    width: 0.1em;
+    left: 20%;
     height: 100%;
+    width: 0.1em;
     background: #444;
 }
 
@@ -164,8 +158,8 @@ canvas {
 
 #hline {
     height: 0.1em;
-    background: #444;
     width: 100%;
+    background: #444;
 }
 
 #bottom-links {

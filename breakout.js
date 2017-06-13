@@ -82,7 +82,7 @@ function initLevel(n) {
 
 // Resize on viewport size change
 function resizeCanvas() {
-    canvas.width = window.innerWidth > window.innerHeight*1.5 ? window.innerHeight*1.5 : window.innerWidth;
+    canvas.width = window.innerWidth > window.innerHeight*1.33 ? window.innerHeight*1.33 : window.innerWidth;
     canvas.height = canvas.width/2;
     container.style.width = canvas.width+'px';
     document.body.style.fontSize = canvas.width*0.02+'px';
