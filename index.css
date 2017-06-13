@@ -78,7 +78,11 @@ canvas {
 }
 
 .noselect {
-    pointer-events: none;
+    cursor: default;
+    -webkit-user-select: none;      
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 
 .divlink {
