@@ -73,7 +73,7 @@ canvas {
 
 .text {
     position: absolute;
-    font-family: monospace, Helvetica;
+    font-family: Consolas, monospace;
     color: #CCC;
 }
 
