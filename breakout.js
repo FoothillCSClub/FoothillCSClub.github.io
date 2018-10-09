@@ -178,14 +178,14 @@ function mouseClick(e) {
     }
 }
 
-function mouseLinkOver() {
-    document.querySelector('.chat_icon').classList.add('chat_icon_hover');
-    chat_label.style.color = '#0C0';
+function discordMouseOver() {
+    document.querySelector('.discord_icon').classList.add('discord_icon_hover');
+    discord_label.style.color = '#0C0';
 }
 
-function mouseLinkOut() {
-    document.querySelector('.chat_icon').classList.remove('chat_icon_hover');
-    chat_label.style.color = '#CCC';
+function discordMouseOut() {
+    document.querySelector('.discord_icon').classList.remove('discord_icon_hover');
+    discord_label.style.color = '#CCC';
 }
 
 function addLife(n) {

@@ -95,9 +95,9 @@ canvas {
     text-decoration: none;
 }
 
-.chat_icon {
+.discord_icon {
     position: absolute;
-    left: 0.6em;
+    left: 0.2em;
     top: 15%;
     width: 2em;
     height: 1.5em;
@@ -106,7 +106,7 @@ canvas {
     font-size: 1.5em;
 }
 
-.chat_icon::before {
+.discord_icon::before {
     position:absolute;
     right: 0.4em;
     bottom: -0.3em;
@@ -115,7 +115,7 @@ canvas {
     content: '';
 }
 
-.chat_icon::after {
+.discord_icon::after {
     position: absolute;
     top: 0.35em;
     left: 0.6em;
@@ -127,17 +127,17 @@ canvas {
     font-family: MonoMMM, monospace;
 }
 
-.chat_icon_hover {
+.discord_icon_hover {
     background: #0C0;
 }
 
-.chat_icon_hover::before {
+.discord_icon_hover::before {
     border-left: 0.4em solid #0C0;
 }
 
-#chat_label {
+#discord_label {
     top: 25%;
-    left: 3em;
+    left: 2.6em;
     font-size: 1.5em;
 }
 
@@ -148,7 +148,7 @@ canvas {
 #vline {
     position: absolute;
     top: 0;
-    left: 20%;
+    left: 22.2%;
     height: 100%;
     width: 0.1em;
     background: #444;
@@ -156,7 +156,7 @@ canvas {
 
 #info {
     top: 35%;
-    left: 23%;
+    left: 24%;
     font-size: 1.5em;
 }
 
