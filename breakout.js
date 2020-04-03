@@ -82,16 +82,24 @@ function initLevel(n) {
 
 // Resize on viewport size change
 function resizeCanvas() {
-    canvas.width = window.innerWidth > window.innerHeight*1.33 ? window.innerHeight*1.33 : window.innerWidth;
-    canvas.height = canvas.width/2;
-    container.style.width = canvas.width+'px';
-    document.body.style.fontSize = canvas.width*0.02+'px';
+    var width = window.innerWidth > window.innerHeight*1.33 ? window.innerHeight*1.33 : window.innerWidth;
+    var height = width / 2;
+    var scale = window.devicePixelRatio || 1;
+
+    container.style.width = width + 'px';
+    document.body.style.fontSize = width * 0.02 + 'px';
+    canvas.width = width * scale;
+    canvas.height = height * scale;
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+
+    ctx.scale(scale, scale);
     ctx.fillStyle = color.background;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    gU = canvas.width/gw;
+    ctx.fillRect(0, 0, width, height);
+    gU = width/gw;
     ball.style.width = r*2*gU+'px';
     ball.style.height = r*2*gU+'px';
-    paddle.style.top = canvas.offsetTop+canvas.height-(paddleHeight+1)*gU+'px';
+    paddle.style.top = canvas.offsetTop+height-(paddleHeight+1)*gU+'px';
     paddle.style.width = paddleWidth*gU+'px';
     paddle.style.height = paddleHeight*gU+'px';
     ctx.fillStyle = color.brick;
